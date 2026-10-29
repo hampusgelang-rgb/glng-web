@@ -21,3 +21,16 @@ function handleFormSubmit(event) {
     statusEl.classList.add('active');
   }
 }
+
+// Mobile tap interaction for tactical viewfinder
+document.addEventListener('DOMContentLoaded', () => {
+  const viewfinder = document.getElementById('viewfinder');
+  if (viewfinder) {
+    viewfinder.addEventListener('click', () => {
+      viewfinder.classList.add('focused');
+      setTimeout(() => {
+        viewfinder.classList.remove('focused');
+      }, 700);
+    });
+  }
+});

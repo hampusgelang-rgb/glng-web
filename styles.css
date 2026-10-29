@@ -84,6 +84,38 @@ body {
 
 .brand-dot {
   color: var(--accent);
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtle Sonar / Radar Pulse on the Orange Dot */
+.brand-dot::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  transform: translate(-50%, 50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  animation: radar-pulse 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+@keyframes radar-pulse {
+  0% {
+    transform: translate(-50%, 50%) scale(0.6);
+    opacity: 0.75;
+  }
+  40% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(3.4);
+    opacity: 0;
+  }
 }
 
 .brand-sub {
@@ -102,7 +134,7 @@ body {
   font-weight: 400;
 }
 
-/* Portrait Image */
+/* Portrait Viewfinder / HUD Frame */
 .portrait-container {
   margin-top: 1.5rem;
   margin-bottom: 2rem;
@@ -112,6 +144,15 @@ body {
   width: 100%;
 }
 
+.viewfinder {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: autofocus-intro 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
 .hero-portrait {
   width: clamp(330px, 48vw, 470px);
   max-width: 100%;
@@ -119,6 +160,115 @@ body {
   display: block;
   user-select: none;
   pointer-events: none;
+}
+
+/* Viewfinder Corners ┌ ┐ └ ┘ */
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(10, 13, 20, 0.28);
+  border-style: solid;
+  border-width: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+/* Telemetry Viewfinder Tags */
+.viewfinder-tag {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: color 0.25s ease;
+}
+
+.viewfinder-tag.tag-top {
+  top: 4px;
+  right: 18px;
+}
+
+.viewfinder-tag.tag-bottom {
+  bottom: 4px;
+  left: 18px;
+}
+
+/* Interactive Focus: Tighten corners on hover or touch tap */
+.viewfinder:hover .corner.top-left,
+.viewfinder.focused .corner.top-left {
+  transform: translate(6px, 6px);
+  border-color: var(--accent);
+}
+
+.viewfinder:hover .corner.top-right,
+.viewfinder.focused .corner.top-right {
+  transform: translate(-6px, 6px);
+  border-color: var(--accent);
+}
+
+.viewfinder:hover .corner.bottom-left,
+.viewfinder.focused .corner.bottom-left {
+  transform: translate(6px, -6px);
+  border-color: var(--accent);
+}
+
+.viewfinder:hover .corner.bottom-right,
+.viewfinder.focused .corner.bottom-right {
+  transform: translate(-6px, -6px);
+  border-color: var(--accent);
+}
+
+.viewfinder:hover .viewfinder-tag,
+.viewfinder.focused .viewfinder-tag {
+  color: var(--accent);
+}
+
+/* Mobile & Touch Animation: subtle autofocus on page load */
+@keyframes autofocus-intro {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Contact Form Section */
