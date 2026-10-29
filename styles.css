@@ -4,14 +4,14 @@
    ========================================================================== */
 
 :root {
-  --bg-primary: #050417;        /* Promoteq deep tactical obsidian */
+  --bg-primary: #14171d;        /* Mörk titangrå */
   --text-primary: #EFEBE6;      /* Promoteq warm sandstone off-white */
-  --text-muted: #8E939B;        /* Muted slate gray */
-  --text-dim: #555A64;          /* Dim gray */
+  --text-muted: #959AA3;        /* Muted titanium slate */
+  --text-dim: #606672;          /* Dim titanium gray */
   --accent: #DE761C;            /* Promoteq signature tactical orange */
-  --border-light: rgba(239, 235, 230, 0.12);
-  --border-hover: rgba(239, 235, 230, 0.28);
-  --input-bg: rgba(239, 235, 230, 0.03);
+  --border-light: rgba(239, 235, 230, 0.11);
+  --border-hover: rgba(239, 235, 230, 0.25);
+  --input-bg: rgba(255, 255, 255, 0.025);
 
   --font-display: 'Rajdhani', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
