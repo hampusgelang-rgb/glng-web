@@ -104,18 +104,16 @@ body {
 
 /* Portrait Image */
 .portrait-container {
-  margin-top: 1.5rem;
-  margin-bottom: -1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-portrait {
-  width: clamp(280px, 40vw, 400px);
+  width: clamp(280px, 40vw, 390px);
   max-width: 100%;
   height: auto;
   display: block;
@@ -128,8 +126,6 @@ body {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
 }
 
 .contact-form {
