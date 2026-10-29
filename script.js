@@ -1,36 +1,23 @@
-// GLNG AB - Interactive script
+// GLNG - Minimalist Contact Script
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Update year
-  const yearEl = document.getElementById('currentYear');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const statusEl = document.getElementById('formStatus');
+
+  const subject = encodeURIComponent(`Förfrågan från ${name} (glng.se)`);
+  const body = encodeURIComponent(`Namn: ${name}\nE-post: ${email}\n\nMeddelande:\n${message}`);
+
+  // Open user mail client with prefilled details
+  const mailtoUrl = `mailto:hampus@glng.se?subject=${subject}&body=${body}`;
+  window.location.href = mailtoUrl;
+
+  // Show status feedback
+  if (statusEl) {
+    statusEl.textContent = 'Öppnar din e-postklient... (Eller maila direkt till hampus@glng.se)';
+    statusEl.classList.add('active');
   }
-
-  // Mobile navigation toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
-
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
-    });
-
-    // Close mobile nav when clicking a link
-    mainNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-      });
-    });
-  }
-
-  // Header blur and shadow on scroll
-  const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
-    } else {
-      header.style.boxShadow = 'none';
-    }
-  });
-});
+}
