@@ -80,45 +80,31 @@ body {
 
 /* Hero Block */
 .hero-block {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
-.profile-frame {
+.portrait-container {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  width: 100%;
 }
 
-.profile-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 20%;
-  border: 2px solid rgba(239, 235, 230, 0.2);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  background: radial-gradient(circle at 50% 30%, #252a34 0%, #14171d 75%);
-  transition: var(--transition);
-}
-
-.profile-img:hover {
-  border-color: var(--accent);
-  box-shadow: 0 16px 36px rgba(222, 118, 28, 0.2);
-  transform: translateY(-2px);
-}
-
-.profile-caption {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
-  margin-top: 0.85rem;
-  text-transform: uppercase;
+.hero-portrait {
+  width: clamp(280px, 42vw, 420px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
 
 .brand-title {
