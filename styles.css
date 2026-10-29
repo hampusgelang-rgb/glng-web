@@ -86,17 +86,18 @@ body {
   color: var(--accent);
   position: relative;
   display: inline-block;
+  line-height: 1;
 }
 
-/* Subtle Sonar / Radar Pulse on the Orange Dot */
+/* Radar Pulse centered on the dot glyph */
 .brand-dot::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 16%;
+  bottom: 0.14em;
   transform: translate(-50%, 50%);
-  width: 14px;
-  height: 14px;
+  width: 0.22em;
+  height: 0.22em;
   border-radius: 50%;
   background-color: var(--accent);
   opacity: 0;
@@ -109,11 +110,11 @@ body {
     transform: translate(-50%, 50%) scale(0.6);
     opacity: 0.75;
   }
-  40% {
-    opacity: 0.25;
+  45% {
+    opacity: 0.22;
   }
   100% {
-    transform: translate(-50%, 50%) scale(3.4);
+    transform: translate(-50%, 50%) scale(3.5);
     opacity: 0;
   }
 }
@@ -136,8 +137,8 @@ body {
 
 /* Portrait Viewfinder / HUD Frame */
 .portrait-container {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin-top: 1.85rem;
+  margin-bottom: 2.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +148,7 @@ body {
 .viewfinder {
   position: relative;
   display: inline-block;
-  padding: 10px;
+  padding: 18px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   animation: autofocus-intro 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
@@ -216,13 +217,13 @@ body {
 }
 
 .viewfinder-tag.tag-top {
-  top: 4px;
-  right: 18px;
+  top: 6px;
+  right: 26px;
 }
 
 .viewfinder-tag.tag-bottom {
-  bottom: 4px;
-  left: 18px;
+  bottom: 6px;
+  left: 26px;
 }
 
 /* Interactive Focus: Tighten corners on hover or touch tap */
